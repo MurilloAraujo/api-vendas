@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  db: 
+    image: mysql:5.7
+    container_name: mysql
+    restart: always
+    tty: true
+    environment:
+      MYSQL_ROOT_PASSWORD: "123"
+      MYSQL_DATABASE: "apivendas"
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+    networks:
+      - mysql-compose-network
+networks:
+  mysql-compose-network:
